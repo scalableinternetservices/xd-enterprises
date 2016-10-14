@@ -1,17 +1,17 @@
-###Imgur2(temporary)
+#Imgur2(temporary)
 
 Image hosting website with users, comment threads and subscriptions.
 
-###Githubs
+##Githubs
 
-##Dominic Mortel
+###Dominic Mortel
 dmortel
 
-##Maya Adkins
+###Maya Adkins
 mayakins
 
-##Daniel Ong
-daniedyo
+###Daniel Ong
+danieldyo
 
-##Stella Chung
+###Stella Chung
 schung507

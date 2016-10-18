@@ -88,7 +88,12 @@ GEM
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
+<<<<<<< HEAD
     orm_adapter (0.5.0)
+=======
+    owlcarousel-rails (1.1.3.3)
+      jquery-rails
+>>>>>>> 568474dbbf38684153b66754b2565567bd4a3b6a
     pkg-config (1.1.7)
     rack (1.6.4)
     rack-test (0.6.3)
@@ -163,12 +168,17 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+<<<<<<< HEAD
   bootstrap-sass
+=======
+  bootstrap-sass (= 3.3.6)
+>>>>>>> 568474dbbf38684153b66754b2565567bd4a3b6a
   byebug
   coffee-rails (~> 4.1.0)
   devise
   jbuilder (~> 2.0)
   jquery-rails
+  owlcarousel-rails
   rails (= 4.2.5)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

@@ -1,6 +1,5 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "bootrap/theme";
 
 /* mixins, variables, etc. */
 
@@ -194,7 +193,7 @@ input {
   margin-left: 0;
 }
 
-/* Users index */
+/* Users index */  
 
 .users {
   list-style: none;
@@ -204,4 +203,12 @@ input {
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
   }
+}
+
+.alert-alert {
+  @extend .alert-warning;
+}
+
+.alert-notice {
+  @extend .alert-info;
 }

@@ -5,6 +5,16 @@
     This is the home page for the Imgur2
   </h2>
   
+  
+  <% if !user_signed_in? %>
+    <p>Register to get started.</p>
+    <p>
+      <%= link_to 'Register', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
+    </p>
+  <% end %>
+  
+
+  
 </div>
 
 <div class="owl-carousel">
@@ -18,6 +28,9 @@
     <div class="item"> XD </div>
     <div class="item"> XD </div>
 </div>
+
+
+
 
 <script>
   $(".owl-carousel").owlCarousel({

@@ -4,4 +4,11 @@ class UsersController < ApplicationController
     @microposts = @user.microposts.paginate(page: params[:page])
   end
   
+  def new
+    if user_signed_in? then
+      redirect_to current_user
+    else redirect_to new_user_registration_path
+    end
+  end
+  
 end

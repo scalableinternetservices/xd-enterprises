@@ -17,6 +17,12 @@ class MicropostsController < ApplicationController
     flash[:success] = "Micropost deleted"
     redirect_to request.referrer || root_url
   end
+  
+  def show
+    @user = User.find_by_id(params[:id])
+    @post = Micropost.find_by_id(params[:id])
+    # handle any errors from the code above
+  end
 
   private
 

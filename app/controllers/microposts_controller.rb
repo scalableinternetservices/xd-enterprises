@@ -8,6 +8,7 @@ class MicropostsController < ApplicationController
       flash[:success] = "Micropost created!"
       redirect_to root_url
     else
+      @feed_items = []
       render 'static_pages/home'
     end
   end
@@ -22,6 +23,7 @@ class MicropostsController < ApplicationController
     @user = User.find_by_id(params[:id])
     @post = Micropost.find_by_id(params[:id])
     # handle any errors from the code above
+    @mpost = Micropost.all
   end
 
   private

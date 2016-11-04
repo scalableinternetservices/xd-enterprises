@@ -1,0 +1,14 @@
+
+  <%= link_to gravatar_for(@post.user, size: 50), @post.user %></br>
+  <span class="user"><%= link_to @post.user.name, @post.user %></br></span>
+  <span class="content">
+    <%= @post.content %></br>
+    <%= image_tag @post.picture.url if @post.picture? %></br>
+  </span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(@post.created_at) %> ago.</br>
+    <% if current_user == @post.user %>
+      <%= link_to "Delete", @post, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+    <% end %>
+  </span>

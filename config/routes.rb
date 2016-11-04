@@ -7,10 +7,18 @@ Rails.application.routes.draw do
   
   #root 'static_pages#home'
   root to: 'static_pages#home'
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :users
   resources :microposts,          only: [:create, :destroy]
+  resources :relationships,       only: [:create, :destroy]
+
   match '/users/:username/:id', to: 'microposts#show', via: :get, as: :user_micropost
   mount Commontator::Engine => '/commontator'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

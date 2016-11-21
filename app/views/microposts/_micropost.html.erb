@@ -2,8 +2,11 @@
   <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
   <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
   <span class="content">
-    <%= micropost.content %>
+    <%= micropost.content %></br>
+    Upload Locally:
     <%= image_tag micropost.picture.url if micropost.picture? %>
+    Upload AWS:
+    <%= image_tag micropost.image.url if micropost.image? %>
     <a href="<%= user_micropost_path(username: micropost.user, id: micropost.id) %>">POST</a>
   </span>
   <span class="timestamp">

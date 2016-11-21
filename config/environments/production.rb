@@ -72,6 +72,16 @@ Rails.application.configure do
   }
 
 
+  config.paperclip_defaults = {
+     :storage => :fog,
+     :fog_credentials => {
+       :use_iam_profile => true,
+       :provider => 'AWS',
+       :region => 'us-west-2'
+     },
+     :fog_directory => 'scalableinternetservices',
+     :path => 'xd-enterprises/'
+  }
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true

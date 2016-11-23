@@ -1,11 +1,9 @@
 class AddImagetoMicroposts < ActiveRecord::Migration
   def self.up
-    change_table :microposts do |t|
-      t.attachment :image
-    end
+    add_attachment :microposts, :image
   end
 
   def self.down
-    remove_attachment :microposts, :image
+    add_attachment :microposts, :image
   end
 end

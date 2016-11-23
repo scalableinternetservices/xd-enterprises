@@ -42,6 +42,17 @@ Rails.application.configure do
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
+  
+  config.paperclip_defaults = {
+     :storage => :s3,
+     :s3_credentials => {
+       :bucket => 'scalableinternetservices/xd-enterprises',
+       :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+     },
+     :s3_host_name => 's3-us-west-2.amazonaws.com'
+  }
+
   config.assets.raise_runtime_errors = true
 
   # Raises error for missing translations

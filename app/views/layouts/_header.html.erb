@@ -2,17 +2,24 @@
   <div class="container">
     <nav class="">
 
+        
+          
         <div class="navbar-header">
           <%= link_to 'Imgur2', root_path, class: 'navbar-brand' %>
           
-          
         </div>
         
-
+         
         
         
-          <ul class="nav navbar-nav">
-           
+          <ul class="nav navbar-nav pull-right">
+                    
+           <%= form_tag(users_path(:id), :method => "get", id: "search-form", class: "form-inline") do %>
+         
+          <%= text_field_tag :search, params[:search], placeholder: "Search Users", class: "form-control" %>
+          
+          <%= button_tag "Search", class: "btn btn-outline-success"%>
+          <% end %>
             
             <% if user_signed_in? %>
               <li><%= link_to "Users", users_path %></li>
@@ -33,13 +40,7 @@
             <% end %>
           </ul>
           
-          <%= form_tag(users_path(:id), :method => "get", id: "search-form", class: "form-inline float-xs-right") do %>
-         
-          <%= text_field_tag :search, params[:search], placeholder: "Search Users", class: "form-control" %>
-          
-          <%= button_tag "Search", class: "btn btn-outline-success"%>
-          <% end %>
-        </div>
+        
          
         
         

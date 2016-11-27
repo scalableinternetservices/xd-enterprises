@@ -16,6 +16,10 @@ class UsersController < ApplicationController
     end
   end
   
+  def index
+    @users = User.all
+  end
+  
   def following
     @title = "Following"
     @user  = User.find(params[:id])

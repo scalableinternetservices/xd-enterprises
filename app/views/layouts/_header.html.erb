@@ -1,6 +1,6 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <nav class="navbar">
+    <nav class="">
 
         <div class="navbar-header">
           <%= link_to 'Imgur2', root_path, class: 'navbar-brand' %>
@@ -8,25 +8,11 @@
           
         </div>
         
+
         
         
-        
-          <%= form_tag(root_path, :method => "get", id: "search-form", class: "form-inline") do %>
-          <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
-         
-          <% end %>
-          <%= submit_tag "Search" %>
-        
-          <% if @posts.present? %>
-          <%= render @posts %>
-          <% else %>
-          <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
-          <% end %>
-        
-          
-    
-          
-          <ul class="nav navbar-nav pull-right">
+          <ul class="nav navbar-nav">
+           
             
             <% if user_signed_in? %>
               <li><%= link_to "Users", users_path %></li>
@@ -46,8 +32,24 @@
               <li><%= link_to 'Sign Up', new_user_registration_path %></li>
             <% end %>
           </ul>
+          
+          <%= form_tag(users_path(:id), :method => "get", id: "search-form", class: "form-inline float-xs-right") do %>
+         
+          <%= text_field_tag :search, params[:search], placeholder: "Search Users", class: "form-control" %>
+          
+          <%= button_tag "Search", class: "btn btn-outline-success"%>
+          <% end %>
         </div>
-
+         
+        
+        
+           
+        
+         
+        
+        
+        
+         
     </nav>
   </div>
 </header>

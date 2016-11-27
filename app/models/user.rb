@@ -34,6 +34,12 @@ class User < ActiveRecord::Base
     following.include?(other_user)
   end
   
+  
+  def self.search(search)
+    where("name LIKE ? OR email LIKE ?", "%#{search}%",  "%#{search}%") 
+   
+  end
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :lockable,

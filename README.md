@@ -9,6 +9,8 @@ or else you cannot upload images.
 
 For Maya: rake db:migrate
 
+https://scalableinternetservices.s3.amazonaws.com/SinglePassenger.json for stack creation
+
 ##Githubs
 
 ###Dominic Mortel

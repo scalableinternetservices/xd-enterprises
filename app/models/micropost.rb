@@ -4,8 +4,9 @@ class Micropost < ActiveRecord::Base
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
-  validate  :picture_size
   acts_as_commontable
+  has_attached_file :image
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   private
 
     # Validates the size of an uploaded picture.
@@ -14,4 +15,9 @@ class Micropost < ActiveRecord::Base
         errors.add(:picture, "should be less than 5MB")
       end
     end
+
+  def self.search(search)
+    where("name LIKE ?", "%#{search}%") 
+    where("content LIKE ?", "%#{search}%")
+  end
 end

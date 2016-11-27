@@ -22,8 +22,9 @@ class MicropostsController < ApplicationController
   def show
     @user = User.find_by_id(params[:id])
     @post = Micropost.find_by_id(params[:id])
+    commontator_thread_show(@post)
     # handle any errors from the code above
-    @mpost = Micropost.all
+    # @mpost = Micropost.all
   end
 
   private

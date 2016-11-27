@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "hashtags/:hashtag",   to: "hashtags#show",      as: :hashtag
+  get "hashtags",            to: "hashtags#index",     as: :hashtags
   get 'users/new'
 
   devise_for :users, controllers: { sessions: 'users/sessions' }

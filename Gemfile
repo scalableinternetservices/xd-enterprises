@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'jquery-turbolinks'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'simple_hashtag'
 gem 'rails', '4.2.5'
 gem 'faker',                   '1.6.6'
 gem 'will_paginate',           '3.1.0'

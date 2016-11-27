@@ -1,5 +1,8 @@
 class Micropost < ActiveRecord::Base
+  
+  
   belongs_to :user
+
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
@@ -7,6 +10,9 @@ class Micropost < ActiveRecord::Base
   acts_as_commontable
   has_attached_file :image
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+  include SimpleHashtag::Hashtaggable
+  hashtaggable_attribute :content
+  
   private
 
     # Validates the size of an uploaded picture.
@@ -16,8 +22,4 @@ class Micropost < ActiveRecord::Base
       end
     end
 
-  def self.search(search)
-    where("name LIKE ?", "%#{search}%") 
-    where("content LIKE ?", "%#{search}%")
-  end
 end

@@ -4,6 +4,7 @@
   <span class="content">
     <%= @post.content %></br>
     <%= image_tag @post.picture.url if @post.picture? %></br>
+    <%= image_tag @post.image.url if @post.image? %></br>
   </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(@post.created_at) %> ago.</br>

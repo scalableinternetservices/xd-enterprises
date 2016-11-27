@@ -12,16 +12,19 @@
          
         
         
-          <ul class="nav navbar-nav pull-right">
+        <ul class="nav navbar-nav pull-right ">
                     
-           <%= form_tag(users_path(:id), :method => "get", id: "search-form", class: "form-inline") do %>
-         
-          <%= text_field_tag :search, params[:search], placeholder: "Search Users", class: "form-control" %>
           
-          <%= button_tag "Search", class: "btn btn-outline-success"%>
-          <% end %>
             
             <% if user_signed_in? %>
+               <li> 
+                <%= form_tag(users_path(:id), :method => "get", id: "search-form", class: "form-inline") do %>
+         
+                <%= text_field_tag :search, params[:search], placeholder: "Search Users", class: "form-control" %>
+          
+                <%= button_tag "Search", class: "btn btn-outline-success"%>
+                <% end %>
+              </li>
               <li><%= link_to "Users", users_path %></li>
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -34,6 +37,8 @@
                   <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
                 </ul>
               </li>
+              
+             
             <% else %>
               <li><%= link_to 'Log In', new_user_session_path %></li>
               <li><%= link_to 'Sign Up', new_user_registration_path %></li>
@@ -42,7 +47,7 @@
           
         
          
-        
+          
         
            
         

@@ -1,5 +1,5 @@
 sudo yum install -y patch
 sudo yum install -y sqlite-devel
 sudo yum install -y ImageMagick
-rm Gemfile.lock
+rm /home/ec2-user/app/Gemfile.lock
 sed -i "/gem 'multi_json'/ c\gem 'multi_json', '1.7.8'" /home/ec2-user/app/Gemfile

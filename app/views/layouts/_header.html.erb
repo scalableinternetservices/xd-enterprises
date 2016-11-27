@@ -1,12 +1,33 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <nav class="">
+    <nav class="navbar">
 
         <div class="navbar-header">
           <%= link_to 'Imgur2', root_path, class: 'navbar-brand' %>
+          
+          
         </div>
-        <div id="navbar">
+        
+        
+        
+        
+          <%= form_tag(root_path, :method => "get", id: "search-form", class: "form-inline") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+         
+          <% end %>
+          <%= submit_tag "Search" %>
+        
+          <% if @posts.present? %>
+          <%= render @posts %>
+          <% else %>
+          <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+          <% end %>
+        
+          
+    
+          
           <ul class="nav navbar-nav pull-right">
+            
             <% if user_signed_in? %>
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">

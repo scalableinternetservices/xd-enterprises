@@ -15,4 +15,9 @@ class Micropost < ActiveRecord::Base
         errors.add(:picture, "should be less than 5MB")
       end
     end
+
+  def self.search(search)
+    where("name LIKE ?", "%#{search}%") 
+    where("content LIKE ?", "%#{search}%")
+  end
 end

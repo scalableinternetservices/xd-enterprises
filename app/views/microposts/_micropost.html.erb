@@ -1,23 +1,32 @@
 
-  <li id="micropost-<%= micropost.id %>">
-  <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
-  <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
-  <span class="content">
-    <%= linkify_hashtags(micropost.content) %></br>
-    Upload Locally:
-    <a href="<%= user_micropost_path(username: micropost.user, id: micropost.id) %>"><%= image_tag micropost.picture.url if micropost.picture? %></a>
-    Upload AWS:
-    <a href="<%= user_micropost_path(username: micropost.user, id: micropost.id) %>"><%= image_tag micropost.image.url if micropost.image? %></a>
-  </span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(micropost.created_at) %> ago.
-    <% if current_user == micropost.user %>
-      <%= link_to "Delete", micropost, method: :delete,
-                                       data: { confirm: "You sure?" } %>
-    <% end %>
-  </span>
-  
-  <%= commontator_thread(micropost) %>
+  <li id="micropost-<%= micropost.id %>"> 
+  <div class="card-3 full-padding"> 
+    <div class="">
+      <div class="">
+        
+        <%= link_to gravatar_for(micropost.user, size: 50, :d => :mm), micropost.user %>
+        <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
+        <span class="content">
+          <%= linkify_hashtags(micropost.content) %></br>
+          Upload Locally:
+          <a href="<%= user_micropost_path(username: micropost.user, id: micropost.id) %>"><%= image_tag micropost.picture.url if micropost.picture? %></a>
+          Upload AWS:
+          <a href="<%= user_micropost_path(username: micropost.user, id: micropost.id) %>"><%= image_tag micropost.image.url if micropost.image? %></a>
+        </span>
+        <span class="timestamp">
+          Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+          <% if current_user == micropost.user %>
+            <%= link_to "Delete", micropost, method: :delete,
+                                             data: { confirm: "You sure?" } %>
+          <% end %>
+        </span>
+        
+        <%= commontator_thread(micropost) %>
+      </div>
+    
+    </div>
+  </div>
+
 
 </li>
   

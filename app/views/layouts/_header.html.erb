@@ -29,7 +29,7 @@
         
     <% if user_signed_in? %>
         <%= form_tag(users_path(:id), :method => "get", id: "search-form", class: "form-inline") do %>
-          <%= button_tag "Search", class: "btn btn-outline-success pull-right fix-padding"%>
+          <%= button_tag "Search", class: "btn btn-success pull-right fix-padding"%>
           <%= text_field_tag :search, params[:search], placeholder: "Search Users", class: "pull-right form-control fix-padding" %>
 
         <% end %>

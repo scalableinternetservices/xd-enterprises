@@ -49,7 +49,7 @@
 <% end %>
 
 <% if user_signed_in? %>
-    <div class="row">
+  <div class="row">
     <div class="col-md-4 col-sm-12 card" >
       <div class=" left" >
         <aside class="col-md-12 col-sm-12 col-lg-12" >
@@ -68,11 +68,12 @@
       </div>
 
     </div>
-    <div class="col-md-8 col-sm-12 card-3">
-      <h3>Micropost Feed</h3>
+    <div class="col-md-8 col-sm-12">
+      
+      <h3 class="white-text">My Feed</h3>
       <div class="">
         <%= render 'shared/feed' %>
       </div>
     </div>
-    </div>
+  </div>
 <% end %>

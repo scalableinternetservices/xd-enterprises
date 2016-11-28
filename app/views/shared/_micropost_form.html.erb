@@ -4,9 +4,6 @@
   </div>
   <%= f.submit "Post", class: "btn btn-success" %>
   <span class="picture">
-    Local upload:
-    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-    AWS Upload:
     <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
   </span>
 <% end %>

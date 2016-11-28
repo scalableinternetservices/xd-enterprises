@@ -5,7 +5,6 @@
   <span class="user"><%= link_to @post.user.name, @post.user %></br></span>
   <span class="content">
     <%= @post.content %></br>
-    <%= image_tag @post.picture.url if @post.picture? %></br>
     <%= image_tag @post.image.url if @post.image? %></br>
   </span>
   <span class="timestamp">

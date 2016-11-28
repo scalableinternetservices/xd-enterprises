@@ -16,10 +16,63 @@
  *= require owl.theme
  *= require commontator/application
  */
-@media (min-width:1040px) { 
-    
-    #left {
-    
-    position: fixed;
+@media (max-width:1039px) { 
+    .left {
+        position: relative;
+        
+    }
+
+    .card {
+          background-color: #eee;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    }
 }
+
+
+@media (min-width:1040px) { 
+    .left {
+        position: fixed;
+        background-color: #eee;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    }
 } 
+
+
+
+.fix-padding {
+    margin-bottom: 0px;
+    margin-top: 7.5px;
+    margin-right: 5px;
+}
+
+.card-3 {
+    background-color: #eee;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+}
+
+.top-padding {
+    padding-top: 15px;
+}
+
+.title {
+    font-family: 'Bungee Inline';
+    font-size: 35px;
+    color: white;
+    
+}
+
+a.title:hover, a.title:active, a.title:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.white-text {
+    color: white;
+}
+
+
+.bot-padding {
+    
+    padding-bottom: 15px;
+}

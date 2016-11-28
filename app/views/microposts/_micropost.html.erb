@@ -3,7 +3,7 @@
   <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
   <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
   <span class="content">
-    <%= micropost.content %></br>
+    <%= linkify_hashtags(micropost.content) %></br>
     Upload Locally:
     <a href="<%= user_micropost_path(username: micropost.user, id: micropost.id) %>"><%= image_tag micropost.picture.url if micropost.picture? %></a>
     Upload AWS:

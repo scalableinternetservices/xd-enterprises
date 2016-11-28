@@ -1,4 +1,13 @@
-<h1>Users</h1>
+<div class="col-md-3">
+  <ul class="nav nav-pills nav-stacked">
+    <li id='users-tab' class="active"><a >Users</a></li>
+    <li id='tags-tab' ><a>Tags</a></li>
+  </ul>
+</div>
+
+<div class="col-md-9">
+   
+<div id='users'>
 <ul class="users">
    
       <% @users.each do |user| %>
@@ -13,9 +22,10 @@
 <% if !@users.present? %>
      <p>There are no users of this name <%= params[:search] %></p>
 <% end %>
+</div>
 
 
-<h1>#<%= params[:search] %></h1>
+<div  id="tags">
 <% if @hashtagged %>
   <% @hashtagged.each do |hashtagged| %>
     <% view    = hashtagged.class.to_s.underscore.pluralize %>
@@ -25,3 +35,28 @@
 <% else -%>
   <p>There is no match for the <em><%= params[:search] %></em> tag.</p>
 <% end -%>
+</div>
+
+</div>
+
+<script>
+
+$("#tags").hide();
+
+$("#users-tab").click( function(){
+      $(this).addClass("active")
+      $("#tags-tab").removeClass("active")
+      $("#users").show();
+      $("#tags").hide();
+});
+
+$("#tags-tab").click( function(){
+    $(this).addClass("active")
+   $("#users-tab").removeClass("active")
+   $("#tags").show();
+   $("#users").hide();
+});
+
+
+
+</script>

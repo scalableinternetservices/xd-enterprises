@@ -1,0 +1,27 @@
+<h1>Users</h1>
+<ul class="users">
+   
+      <% @users.each do |user| %>
+         <li>
+           <%= gravatar_for user, size: 50 %>
+           <%= link_to user.name, user %>
+         </li>
+      <% end -%>
+  
+</ul>
+
+<% if !@users.present? %>
+     <p>There are no users of this name <%= params[:search] %></p>
+<% end %>
+
+
+<h1>#<%= params[:search] %></h1>
+<% if @hashtagged %>
+  <% @hashtagged.each do |hashtagged| %>
+    <% view    = hashtagged.class.to_s.underscore.pluralize %>
+    <% partial = hashtagged.class.to_s.underscore %>
+    <%= render "#{view}/#{partial}", {partial.to_sym => hashtagged} %>
+  <% end -%>
+<% else -%>
+  <p>There is no match for the <em><%= params[:search] %></em> tag.</p>
+<% end -%>

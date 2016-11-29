@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'jquery-turbolinks'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'simple_hashtag'
 gem 'rails', '4.2.5'
 gem 'faker',                   '1.6.6'
 gem 'will_paginate',           '3.1.0'
@@ -10,9 +11,17 @@ gem 'bootstrap-will_paginate', '0.0.10'
 gem 'bootstrap-sass', '3.3.7'
 gem 'carrierwave',             '0.11.2'
 gem 'mini_magick',             '4.5.1'
-gem 'fog',                     '1.38.0'
-gem 'paperclip',               '4.3.1'
-gem 'aws-sdk',                 '< 2.0'
+
+#Make sure these are uncommented if pushing to master
+gem 'fog'
+gem 'paperclip'
+gem 'aws-sdk'
+
+#If testing locally use these verions of the gems.
+#gem 'fog',                     '1.38.0'
+#gem 'paperclip',               '4.3.1'
+#gem 'aws-sdk',                 '< 2.0'
+
 gem 'owlcarousel-rails'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -61,4 +70,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-

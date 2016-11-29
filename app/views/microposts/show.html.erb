@@ -1,9 +1,10 @@
-
-  <%= link_to gravatar_for(@post.user, size: 50), @post.user %></br>
+<div class="container top-padding card-3">
+  <div class= "row">
+    <div class="col-md-12 col-sm-12 col-lg-12">
+        <%= link_to gravatar_for(@post.user, size: 50), @post.user %></br>
   <span class="user"><%= link_to @post.user.name, @post.user %></br></span>
   <span class="content">
     <%= @post.content %></br>
-    <%= image_tag @post.picture.url if @post.picture? %></br>
     <%= image_tag @post.image.url if @post.image? %></br>
   </span>
   <span class="timestamp">
@@ -14,3 +15,8 @@
     <% end %>
   </span>
   <%= commontator_thread(@post) %>
+    </div>
+  </div>
+
+  
+</div>

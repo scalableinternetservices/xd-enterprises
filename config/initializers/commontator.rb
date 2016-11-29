@@ -46,7 +46,7 @@ Commontator.configure do |config|
   # comments will become a hyperlink pointing to this path
   # The main application's routes can be accessed through the app_routes object
   # Default: lambda { |user, app_routes| '' } (no link)
-  config.user_link_proc = lambda { |user, app_routes| '' }
+  config.user_link_proc = lambda { |user, app_routes| "/users/#{user.id}" }
 
   # user_avatar_proc
   # Type: Proc
@@ -65,7 +65,7 @@ Commontator.configure do |config|
   #              user, 1, :s => 60, :d => 'mm') }
   config.user_avatar_proc = lambda { |user, view|
                                      view.commontator_gravatar_image_tag(
-                                       user, 1, :s => 60, :d => 'mm') }
+                                       user, 1, :s => 60) }
 
   # user_email_proc
   # Type: Proc
@@ -191,7 +191,7 @@ Commontator.configure do |config|
   # Not yet implemented:
   #   :n (link to the form; opens in a new window)
   # Default: :l
-  config.new_comment_style = :l
+  config.new_comment_style = :t
 
   # comments_per_page
   # Type: Fixnum or nil

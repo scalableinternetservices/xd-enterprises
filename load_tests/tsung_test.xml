@@ -10,7 +10,7 @@
   <!-- Server side setup -->
   <servers>
     <!-- when testing replace google.com with ec2stack url -->
-    <server host="ec2-35-164-235-212.us-west-2.compute.amazonaws.com" port="80" type="tcp"></server>
+    <server host="ec2-35-163-239-57.us-west-2.compute.amazonaws.com" port="80" type="tcp"></server>
   </servers>
 
 

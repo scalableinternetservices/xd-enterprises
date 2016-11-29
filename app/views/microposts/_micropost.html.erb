@@ -7,9 +7,6 @@
         <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
         <span class="content">
           <%= linkify_hashtags(micropost.content) %></br>
-          Upload Locally:
-          <a href="<%= user_micropost_path(username: micropost.user, id: micropost.id) %>"><%= image_tag micropost.picture.url if micropost.picture? %></a>
-          Upload AWS:
           <a href="<%= user_micropost_path(username: micropost.user, id: micropost.id) %>"><%= image_tag micropost.image.url if micropost.image? %></a>
         </span>
         <span class="timestamp">

@@ -97,6 +97,29 @@
       
       <thinktime value="2" random="true"></thinktime>
       
+      <setdynvars sourcetype="eval"
+            code='fun({Pid,DynVars})->
+                    {ok, Bin} = file:read_file("ramen.jpg"),
+                    Bin
+                  end.'>
+        <var name="attached_file" />
+      </setdynvars>
+<!--
+      <request subst="true">
+        <http
+          url='/microposts'
+          version='1.1'
+          method='POST'
+          contents='micropost%5Bcontent%5D=xd&amp;
+          name="micropost[image]"; filename="ramen.jpg"%%_nl%%Content-Type: image/jpg%%_nl%%%%_nl%%%%_attached_file%%%%_nl%%------FormBoundary%%_nl%%Content-Disposition: form-data;
+          
+          
+          
+          filename="sample.png"%%_nl%%Content-Type: image/png%%_nl%%%%_nl%%%%_attached_file%%commit=Post'
+'>
+      </http>
+      </request>
+-->      
       <request subst="true">
         <http url='/users/sign_out' version='1.1' method='DELETE'></http>
       </request>

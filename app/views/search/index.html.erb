@@ -1,12 +1,12 @@
-<div class="col-md-3 col-md-offset-2 card-3 full-padding">
+<div class="col-md-3 card-3 full-padding">
   <ul class="nav nav-pills nav-stacked">
     <li id='users-tab' class="active"><a >Users</a></li>
     <li id='tags-tab' ><a>Tags</a></li>
   </ul>
 </div>
 
-<div class="col-md-5 ">
-    <div id='users' class="card-3 full-padding">
+<div class="col-md-9 ">
+    <div id='users' class="card-3 top-padding bot-padding">
         <ul class="users">
           <% @users.each do |user| %>
              <li>
@@ -22,7 +22,7 @@
     </div>
     
     
-    <div  id="tags" class="card-3 full-padding">
+    <div  id="tags" class="full-padding">
         <% if @hashtagged %>
           <% @hashtagged.each do |hashtagged| %>
             <% view    = hashtagged.class.to_s.underscore.pluralize %>

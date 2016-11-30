@@ -97,6 +97,39 @@
       
       <thinktime value="2" random="true"></thinktime>
       
+      <setdynvars sourcetype="eval"
+        code='fun({Pid,DynVars})-> [[13, 10]] end.'>
+        <var name="nl" />
+      </setdynvars>
+      
+      <setdynvars sourcetype="eval"
+            code='fun({Pid,DynVars})->
+                    {ok, Bin} = file:read_file("ramen.jpg"),
+                    Bin
+                  end.'>
+        <var name="attached_file" />
+      </setdynvars>
+      
+      
+      
+      <request subst="true">
+        <http
+          url='/microposts'
+          version='1.1'
+          method='POST'
+          content_type='multipart/form-data; boundary=----FormBoundary'
+          contents='------FormBoundary%%_nl%%Content-Disposition: form-data; name="micropost[content]"%%_nl%%%%_nl%%%xd%%%_nl%%------FormBoundary%%_nl%%Content-Disposition: form-data; name="micropost[image]"; filename="ramen.jpg"%%_nl%%Content-Type: image/jpg%%_nl%%%%_nl%%%%_attached_file%%%%_nl%%------FormBoundary%%_nl%%Content-Disposition: form-data; name="commit"%%_nl%%%%_nl%%Post%%_nl%%------FormBoundary--%%_nl%%%%_nl%%'>
+      </http>
+      </request>
+
+      <thinktime value="2" random="true"></thinktime>
+
+      <request subst="true">
+        <http url='/search?utf8=%E2%9C%93&amp;button=&amp;search=xd' version='1.1' method='GET'></http>
+      </request>
+      
+      <thinktime value="2" random="true"></thinktime>
+      
       <request subst="true">
         <http url='/users/sign_out' version='1.1' method='DELETE'></http>
       </request>

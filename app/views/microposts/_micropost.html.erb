@@ -7,7 +7,7 @@
         <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
         <span class="content">
           <%= linkify_hashtags(micropost.content) %></br>
-          <a href="<%= user_micropost_path(username: micropost.user, id: micropost.id) %>"><%= image_tag micropost.image.url if micropost.image? %></a>
+          <a href="<%= user_micropost_path(username: micropost.user, id: micropost.id) %>"><%= image_tag micropost.image.url(:medium) if micropost.image? %></a>
         </span>
         <span class="timestamp">
           Posted <%= time_ago_in_words(micropost.created_at) %> ago.

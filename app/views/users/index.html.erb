@@ -1,8 +1,8 @@
 <% provide(:title, 'All users') %>
-<div class="container card-3 bot-padding">
-  <h1>All users</h1>
-
-  <ul class="users">
+<div class="container">
+  <h1 class="white-text">All users</h1>
+  <div class=" card-3 bot-padding top-padding">
+    <ul class="users">
     <% @users.each do |user| %>
       <li>
         <%= gravatar_for user, size: 50 %>
@@ -10,5 +10,7 @@
       </li>
     <% end %>
   </ul>
+  </div>
+
   
 </div>

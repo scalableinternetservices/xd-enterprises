@@ -1,11 +1,21 @@
 <%= form_for(@micropost, html: { multipart: true }) do |f| %>
-  <div class="field">
-    <%= f.text_area :content, placeholder: "Compose new post..." %>
-  </div>
-  <%= f.submit "Post", class: "btn btn-success" %>
+<% if @micropost.errors.any? %>
+  <ul id='error_explanation'>
+    <% @micropost.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
   <span class="picture">
     <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
+   <div id="target">
+   </div>
   </span>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "Caption..."%>
+  </div>
+  <%= f.submit "Post", class: "btn btn-success" %>
+  
 <% end %>
 
 <script type="text/javascript">
@@ -15,4 +25,24 @@
       alert('Maximum file size is 5MB. Please choose a smaller file.');
     }
   });
+  
+  $(function() {
+  $('#micropost_image').on('change', function(event) {
+    var files = event.target.files;
+    var image = files[0]
+  
+    var reader = new FileReader();
+    reader.onload = function(file) {
+      var img = new Image();
+      console.log(file);
+      
+      
+      img.src = file.target.result;
+      img.width = 100;
+      $('#target').html(img);
+    }
+    reader.readAsDataURL(image);
+    console.log(files);
+  });
+});
 </script>

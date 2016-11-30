@@ -5,7 +5,7 @@ class MicropostsController < ApplicationController
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
-      flash[:success] = "Micropost created!"
+      #flash[:success] = "Micropost created!"
       redirect_to root_url
     else
       @feed_items = []
@@ -15,14 +15,18 @@ class MicropostsController < ApplicationController
 
   def destroy
     @micropost.destroy
-    flash[:success] = "Micropost deleted"
+    #flash[:success] = "Micropost deleted"
     redirect_to request.referrer || root_url
   end
   
   def show
     @user = User.find_by_id(params[:id])
     @post = Micropost.find_by_id(params[:id])
-    commontator_thread_show(@post)
+    if !@post.nil?
+      commontator_thread_show(@post)
+    else
+      redirect_to root_url
+    end
     # handle any errors from the code above
     # @mpost = Micropost.all
   end

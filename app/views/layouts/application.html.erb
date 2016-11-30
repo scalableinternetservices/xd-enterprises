@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Imgur2</title>
+    <title>XDiscover</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all',
                                               'data-turbolinks-track': 'reload' %>
@@ -9,22 +9,25 @@
     <%= render 'layouts/shim' %>
     <link href="https://fonts.googleapis.com/css?family=Bungee+Inline" rel="stylesheet">
   </head>
+  <% if user_signed_in? %>
   <body>
+  <% else %>
+  <body class="back_image">  
+  <% end %>
     <%= render 'layouts/header' %>
     <div class="container">
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>">
-          <%= value %>
-        </div>
-      <% end %>
+      <%# flash.each do |key, value| %>
+        <!--div class="alert alert-<%#= key %>">
+          <%#= value %>
+        </div-->
+      <%# end %>
     </div>
 
     <%= yield :top_content %>
 
     <div class="container">
         <h1><%= yield :header %></h1>
-        
-      <%= yield %>
+        <%= yield %>
     </div>
   </body>
 </html>

@@ -26,7 +26,8 @@
     }
 
     .card {
-          background-color: #eee;box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+          background-color: #dadada;
+          box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     }
 }
 
@@ -34,15 +35,17 @@
 @media (min-width:992px) { 
     .left {
         position: fixed;
-        background-color: #eee;
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);}
+        background-color: #dadada;
+box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        
+    }
 } 
 
 
 
 .card-3 {
-    background-color: #eee;
-box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    background-color: #dadada;
+box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 
@@ -74,10 +77,12 @@ a.title:hover, a.title:active, a.title:visited {
     text-decoration: none;
 }
 
-.white-text {
-    color: white;
-}
 
+
+.top-padding {
+    
+    padding-top: 15px;
+}
 
 .bot-padding {
     
@@ -85,12 +90,19 @@ a.title:hover, a.title:active, a.title:visited {
 }
 
 .bot-margin {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    
+}
+
+.top-margin {
+    margin-top: 15px;
     
 }
 
 
+
 a, .stats a, a:visited, .stats a:visited {
+    text-decoration: none;
     color: #4CAF50;
 }
 
@@ -116,6 +128,31 @@ a:hover, a:active  {
 }
 
 .microposts li {
-    padding: 15px 0;
+    padding: 10px 0;
     border-top: 0px solid #e8e8e8;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color: #fff;
+    background-color: #449d44;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #ccc;
+}
+
+.back_image {
+    background-image: url("https://wallpaperscraft.com/image/city_bridge_rail_fog_blurred_glare_cars_traffic_47826_3840x2160.jpg");
+    background-size: 100%;
+}
+
+.jumbotron {
+    color: white;
+    background-color: #333;
+    opacity: .9; 
+}
+
+.white-text {
+    color: white !important; 
 }

@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
-  protect_from_forgery with: :exception
+  #protect_from_forgery with: :exception
 
   private
 
@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
     def logged_in_user
       unless user_signed_in?
         store_location
-        flash[:danger] = "Please log in."
+        #flash[:danger] = "Please log in."
         redirect_to new_user_session_path
       end
     end

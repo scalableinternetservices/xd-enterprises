@@ -1,42 +1,38 @@
-<div class="col-md-3">
+<div class="col-md-3 col-md-offset-2 card-3 full-padding">
   <ul class="nav nav-pills nav-stacked">
     <li id='users-tab' class="active"><a >Users</a></li>
     <li id='tags-tab' ><a>Tags</a></li>
   </ul>
 </div>
 
-<div class="col-md-9">
-   
-<div id='users'>
-<ul class="users">
-   
-      <% @users.each do |user| %>
-         <li>
-           <%= gravatar_for user, size: 50 %>
-           <%= link_to user.name, user %>
-         </li>
-      <% end -%>
-  
-</ul>
-
-<% if !@users.present? %>
-     <p>There are no users of this name <%= params[:search] %></p>
-<% end %>
-</div>
-
-
-<div  id="tags">
-<% if @hashtagged %>
-  <% @hashtagged.each do |hashtagged| %>
-    <% view    = hashtagged.class.to_s.underscore.pluralize %>
-    <% partial = hashtagged.class.to_s.underscore %>
-    <%= render "#{view}/#{partial}", {partial.to_sym => hashtagged} %>
-  <% end -%>
-<% else -%>
-  <p>There is no match for the <em><%= params[:search] %></em> tag.</p>
-<% end -%>
-</div>
-
+<div class="col-md-5 ">
+    <div id='users' class="card-3 full-padding">
+        <ul class="users">
+          <% @users.each do |user| %>
+             <li>
+               <%= gravatar_for user, size: 50 %>
+               <%= link_to user.name, user %>
+             </li>
+          <% end -%>
+        </ul>
+    
+        <% if !@users.present? %>
+            <p>There are no users of this name <%= params[:search] %></p>
+        <% end %>
+    </div>
+    
+    
+    <div  id="tags" class="card-3 full-padding">
+        <% if @hashtagged %>
+          <% @hashtagged.each do |hashtagged| %>
+            <% view    = hashtagged.class.to_s.underscore.pluralize %>
+            <% partial = hashtagged.class.to_s.underscore %>
+            <%= render "#{view}/#{partial}", {partial.to_sym => hashtagged} %>
+          <% end -%>
+        <% else -%>
+          <p>There is no match for the <em><%= params[:search] %></em> tag.</p>
+        <% end -%>
+    </div>
 </div>
 
 <script>

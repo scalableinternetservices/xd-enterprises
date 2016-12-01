@@ -23,12 +23,18 @@ class MicropostsController < ApplicationController
   
   def show
     @user = User.find_by_id(params[:id])
-    @post = Micropost.find_by_id(params[:id])
-    if !@post.nil?
-      commontator_thread_show(@post)
-    else
-      redirect_to root_url
+    if stale?([Commontator::Thread.find(params[:id]), Micropost.find_by_id(params[:id])])
+      @post = Micropost.find_by_id(params[:id])
+      if !@post.nil?
+        commontator_thread_show(@post)
+      else
+        redirect_to root_url
+      end
+      #p "NOT CACHEDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"
+    #else
+      #p "THIS IS HELLA CACHED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     end
+  
     # handle any errors from the code above
     # @mpost = Micropost.all
   end

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    if stale?([@user.microposts, Commontator::Thread.find(34)])
+    if stale?([@user.microposts, Commontator::Thread.find(@user.microposts.ids)])
       @microposts = @user.microposts.paginate(page: params[:page])
       p " NOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEE"
     else

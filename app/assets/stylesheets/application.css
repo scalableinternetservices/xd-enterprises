@@ -156,3 +156,7 @@ a:hover, a:active  {
 .white-text {
     color: white !important; 
 }
+
+.remove-top-margin {
+    margin-top: 0px;
+}

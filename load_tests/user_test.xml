@@ -9,7 +9,7 @@
 
   <!-- Server side setup -->
   <servers>
-    <server host="ec2-35-164-69-138.us-west-2.compute.amazonaws.com" port="80" type="tcp"></server>
+    <server host="ec2-35-164-162-207.us-west-2.compute.amazonaws.com" port="80" type="tcp"></server>
   </servers>
 
 
@@ -116,7 +116,7 @@
           version='1.1'
           method='POST'
           content_type='multipart/form-data; boundary=----FormBoundary'
-          contents='------FormBoundary%%_nl%%Content-Disposition: form-data; name=&quot;authenticity_token&quot;%%_nl%%%%_nl%%%%_authenticity_token%%%%_nl%%------FormBoundary%%_nl%%Content-Disposition: form-data; name="micropost[content]"%%_nl%%%%_nl%%xd%%_nl%%------FormBoundary%%_nl%%Content-Disposition: form-data; name="micropost[image]"; filename="ramen.jpg"%%_nl%%Content-Type: image/jpeg%%_nl%%%%_nl%%%%_attached_file%%%%_nl%%------FormBoundary%%_nl%%Content-Disposition: form-data; name="commit"%%_nl%%%%_nl%%Post%%_nl%%------FormBoundary--%%_nl%%%%_nl%%'>
+          contents='------FormBoundary%%_nl%%Content-Disposition: form-data; name=&quot;authenticity_token&quot;%%_nl%%%%_nl%%%%_authenticity_token%%%%_nl%%------FormBoundary%%_nl%%Content-Disposition: form-data; name="micropost[content]"%%_nl%%%%_nl%%#xd%%_nl%%------FormBoundary%%_nl%%Content-Disposition: form-data; name="micropost[image]"; filename="ramen.jpg"%%_nl%%Content-Type: image/jpeg%%_nl%%%%_nl%%%%_attached_file%%%%_nl%%------FormBoundary%%_nl%%Content-Disposition: form-data; name="commit"%%_nl%%%%_nl%%Post%%_nl%%------FormBoundary--%%_nl%%%%_nl%%'>
         </http>
         </request>
     

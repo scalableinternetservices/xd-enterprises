@@ -1,3 +1,4 @@
+<% cache(cache_key_for_post(micropost)) do %>
 <li id="micropost-<%= micropost.id %>"> 
   <div class="card-3 full-padding"> 
     <div class="">
@@ -19,12 +20,13 @@
             <% end %>
           </span>
           
-          
+         
             <%= commontator_thread(micropost) %>
-    
+
       </div>
       
    
     </div>
   </div>
 </li>
+<% end %>

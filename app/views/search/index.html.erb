@@ -5,34 +5,45 @@
   </ul>
 </div>
 
+<div></div>
+
 <div class="col-md-5 ">
+    
+    <% cache(cache_key_for_user_list) do %>
     <div id='users' class="card-3 full-padding">
+       
         <ul class="users">
           <% @users.each do |user| %>
+             
              <li>
                <%= gravatar_for user, size: 50 %>
                <%= link_to user.name, user %>
              </li>
+           
           <% end -%>
         </ul>
-    
+      
         <% if !@users.present? %>
             <p>There are no users of this name <%= params[:search] %></p>
         <% end %>
+      
     </div>
+    <% end %>
     
-    
+   
     <div  id="tags" class="card-3 full-padding">
-        <% if @hashtagged %>
-          <% @hashtagged.each do |hashtagged| %>
-            <% view    = hashtagged.class.to_s.underscore.pluralize %>
-            <% partial = hashtagged.class.to_s.underscore %>
-            <%= render "#{view}/#{partial}", {partial.to_sym => hashtagged} %>
-          <% end -%>
-        <% else -%>
-          <p>There is no match for the <em><%= params[:search] %></em> tag.</p>
-        <% end -%>
+      
+      <% if @hashtagged %>
+         <% cache(cache_key_for_tags) do %>
+             <% @hashtagged.each do |hashtagged| %>
+                <%= render_hashtaggable hashtagged %>
+             <% end %>
+         <% end %>
+      <% else %>
+         <p>There is no match for the <em><%= params[:search] %></em> tag.</p>
+      <% end %> 
     </div>
+   
 </div>
 
 <script>
@@ -52,7 +63,5 @@ $("#tags-tab").click( function(){
    $("#tags").show();
    $("#users").hide();
 });
-
-
 
 </script>

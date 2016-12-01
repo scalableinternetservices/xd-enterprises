@@ -6,4 +6,7 @@ class SearchController < ApplicationController
     @hashtagged = @hashtag.hashtaggables if @hashtag
     
   end
+  
+   
+   
 end

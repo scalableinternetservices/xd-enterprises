@@ -1,14 +1,19 @@
+
+
 <% provide(:title, 'All users') %>
 <div class="container">
   <h1 class="white-text">All users</h1>
   <div class=" card-3 bot-padding top-padding">
     <ul class="users">
-    <% @users.each do |user| %>
-      <li>
-        <%= gravatar_for user, size: 50 %>
-        <%= link_to user.name, user %>
-      </li>
+    <% cache(cache_key_for_all_users) do %>
+      <% @users.each do |user| %>
+        <li>
+          <%= gravatar_for user, size: 50 %>
+          <%= link_to user.name, user %>
+        </li>
+      <% end %>
     <% end %>
+
   </ul>
   </div>
 

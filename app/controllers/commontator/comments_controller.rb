@@ -5,7 +5,7 @@ module Commontator
 
     # GET /threads/1/comments/new
     def new
-      @comment = Comment.new
+      @comment = Comment.newskyp
       @comment.thread = @thread
       @comment.creator = @user
       security_transgression_unless @comment.can_be_created_by?(@user)
@@ -23,6 +23,7 @@ module Commontator
     def create
       @comment = Comment.new
       @comment.thread = @thread
+      @thread.touch
       @comment.creator = @user
       @comment.body = params[:comment].nil? ? nil : params[:comment][:body]
       security_transgression_unless @comment.can_be_created_by?(@user)

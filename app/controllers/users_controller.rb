@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    if stale?([@user.microposts, Commontator::Thread.find(34)])
+    if stale?([@user.microposts, Commontator::Thread.find(@user.microposts.ids)])
       @microposts = @user.microposts.paginate(page: params[:page])
       # p " NOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEENOOOOOOO CACHEEEEEE"
     else
@@ -18,13 +18,7 @@ class UsersController < ApplicationController
   end
   
   def index
-    @users = User.all
-    
-    if params[:search]
-      @users = User.search(params[:search]).order("created_at DESC")
-    else
-      @users = User.all.order('created_at DESC')
-    end
+      @users = User.all.order('name ASC').paginate(page: params[:page])
   end
   
   def following

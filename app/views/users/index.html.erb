@@ -1,8 +1,10 @@
 
 
 <% provide(:title, 'All users') %>
+
 <div class="container">
   <h1 class="white-text">All users</h1>
+  <%= will_paginate %>
   <div class=" card-3 bot-padding top-padding">
     <ul class="users">
     <% cache(cache_key_for_all_users) do %>
@@ -16,6 +18,7 @@
 
   </ul>
   </div>
-
-  
 </div>
+
+<%= will_paginate %>
+

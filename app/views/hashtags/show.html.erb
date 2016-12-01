@@ -1,5 +1,5 @@
 <h1><%= params[:hashtag] %></h1>
-<% cache(cache_key_for_tag_posts) do %>
+<% cache(cache_key_for_tags) do %>
 <% if @hashtagged %>
   <% @hashtagged.each do |hashtagged| %>
     <%= render_hashtaggable hashtagged %>

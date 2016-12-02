@@ -30,9 +30,6 @@ class MicropostsController < ApplicationController
       else
         redirect_to root_url
       end
-      #p "NOT CACHEDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"
-    #else
-      #p "THIS IS HELLA CACHED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     end
   
     # handle any errors from the code above

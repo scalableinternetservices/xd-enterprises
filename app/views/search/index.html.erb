@@ -21,29 +21,41 @@
         <% end %>
     </div>
     
-    
     <div  id="tags" class="full-padding">
         <% if @hashtagged %>
           <% @hashtagged.each do |hashtagged| %>
             <% view    = hashtagged.class.to_s.underscore.pluralize %>
             <% partial = hashtagged.class.to_s.underscore %>
             <%= render "#{view}/#{partial}", {partial.to_sym => hashtagged} %>
+            <%= will_paginate @hashtagged%>
           <% end -%>
         <% else -%>
           <p>There is no match for the <em><%= params[:search] %></em> tag.</p>
         <% end -%>
     </div>
+    <div id="user-paginate">
+      <%= will_paginate @users %>
+    </div>
+
+  <div id="tag-paginate">
+    <% if @hashtagged %>
+      <%= will_paginate @users %>
+    <% end -%>
+  </div>
 </div>
 
 <script>
 
 $("#tags").hide();
 
+
 $("#users-tab").click( function(){
       $(this).addClass("active")
       $("#tags-tab").removeClass("active")
       $("#users").show();
       $("#tags").hide();
+      $("#tag-paginate").hide();
+      $("#user-paginate").show();
 });
 
 $("#tags-tab").click( function(){
@@ -51,8 +63,8 @@ $("#tags-tab").click( function(){
    $("#users-tab").removeClass("active")
    $("#tags").show();
    $("#users").hide();
+   $("#tag-paginate").show();
+   $("#user-paginate").hide();
 });
-
-
 
 </script>

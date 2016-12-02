@@ -14,14 +14,14 @@ gem 'mini_magick',             '4.5.1'
 
 #Make sure these are uncommented if pushing to master
 
-#gem 'fog'
-#gem 'paperclip'
-#gem 'aws-sdk'
+gem 'fog'
+gem 'paperclip'
+gem 'aws-sdk'
 
 #If testing locally use these verions of the gems.
-gem 'aws-sdk',                 '< 2.0'
-gem 'fog',                     '1.38.0'
-gem 'paperclip',               '4.3.1'
+#gem 'aws-sdk',                 '< 2.0'
+#gem 'fog',                     '1.38.0'
+#gem 'paperclip',               '4.3.1'
 
 gem 'owlcarousel-rails'
 # Use sqlite3 as the database for Active Record
